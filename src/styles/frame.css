@@ -1,6 +1,5 @@
 .frame {
   display: flex;
-  border: 10px solid brown;
   height: 300px;
   width: 500px;
   overflow: hidden;

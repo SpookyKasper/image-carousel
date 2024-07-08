@@ -1,17 +1,19 @@
 const createCarousel = (imageArray, currentSlide = 0) => {
-  let numSlides = imageArray.length;
+  let myImageArray = imageArray;
   let myCurrentSlide = currentSlide;
 
   const nextSlide = () => myCurrentSlide++;
   const previousSlide = () => myCurrentSlide--;
-  const getNumSlides = () => numSlides;
+  const getImageArray = () => myImageArray;
   const getCurrentSlide = () => myCurrentSlide;
+  const setCurrentSlide = (freshSlide) => (myCurrentSlide = freshSlide);
 
   return {
     nextSlide,
     previousSlide,
-    getNumSlides,
+    getImageArray,
     getCurrentSlide,
+    setCurrentSlide,
   };
 };
 
