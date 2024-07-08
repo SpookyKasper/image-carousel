@@ -1,21 +1,11 @@
-export function nextSlideButton(carouselObj, imageBand) {
-  const nextSlideBtn = document.createElement("button");
-  nextSlideBtn.textContent = ">";
-  nextSlideBtn.classList.add("change-slide-btn");
-  nextSlideBtn.addEventListener("click", () => {
-    changeSlide(-1, carouselObj, imageBand);
+export default function changeSlideBtn(direction, carouselObj, imageBand) {
+  const changeSlideButton = document.createElement("button");
+  changeSlideButton.textContent = direction === 1 ? "<" : ">";
+  changeSlideButton.classList.add("change-slide-btn");
+  changeSlideButton.addEventListener("click", () => {
+    changeSlide(direction, carouselObj, imageBand);
   });
-  return nextSlideBtn;
-}
-
-export function previousSlideBtn(carouselObj, imageBand) {
-  const previousSlideBtn = document.createElement("button");
-  previousSlideBtn.textContent = "<";
-  previousSlideBtn.classList.add("change-slide-btn");
-  previousSlideBtn.addEventListener("click", () => {
-    changeSlide(1, carouselObj, imageBand);
-  });
-  return previousSlideBtn;
+  return changeSlideButton;
 }
 
 function changeSlide(direction, carouselObj, imageBand) {
