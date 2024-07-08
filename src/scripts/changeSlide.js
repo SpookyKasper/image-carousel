@@ -3,7 +3,7 @@ export function nextSlideButton(carouselObj, imageBand) {
   nextSlideBtn.textContent = ">";
   nextSlideBtn.classList.add("change-slide-btn");
   nextSlideBtn.addEventListener("click", () => {
-    nextSlide(carouselObj, imageBand);
+    changeSlide(-1, carouselObj, imageBand);
   });
   return nextSlideBtn;
 }
@@ -13,23 +13,15 @@ export function previousSlideBtn(carouselObj, imageBand) {
   previousSlideBtn.textContent = "<";
   previousSlideBtn.classList.add("change-slide-btn");
   previousSlideBtn.addEventListener("click", () => {
-    previousSlide(carouselObj, imageBand);
+    changeSlide(1, carouselObj, imageBand);
   });
   return previousSlideBtn;
 }
 
-function nextSlide(carouselObj, imageBand) {
+function changeSlide(direction, carouselObj, imageBand) {
   const currentSlide = carouselObj.getCurrentSlide();
   const initialPosition = -currentSlide * 500;
-  const endPosition = initialPosition - 500;
-  carouselObj.nextSlide();
-  imageBand.style.transform = `translateX(${endPosition}px)`;
-}
-
-function previousSlide(carouselObj, imageBand) {
-  const currentSlide = carouselObj.getCurrentSlide();
-  const initialPosition = -currentSlide * 500;
-  const endPosition = initialPosition + 500;
-  carouselObj.previousSlide();
+  const endPosition = direction * 500 + initialPosition;
+  direction === 1 ? carouselObj.previousSlide() : carouselObj.nextSlide();
   imageBand.style.transform = `translateX(${endPosition}px)`;
 }
