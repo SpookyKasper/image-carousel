@@ -1,20 +1,18 @@
-import image1 from "../images/image1.jpg";
-import image2 from "../images/image2.jpg";
-import image3 from "../images/image3.jpg";
-import "../styles/carousel.css";
+const createCarousel = (imageArray, currentSlide = 0) => {
+  let numSlides = imageArray.length;
+  let myCurrentSlide = currentSlide;
 
-const images = [image1, image2, image3];
+  const nextSlide = () => myCurrentSlide++;
+  const previousSlide = () => myCurrentSlide--;
+  const getNumSlides = () => numSlides;
+  const getCurrentSlide = () => myCurrentSlide;
 
-// Make an very wide image with all the other images
-export default function carousel() {
-  const carousel = document.createElement("div");
-  carousel.classList.add("carousel");
-  images.forEach((img) => carousel.append(createImageEl(img)));
-  return carousel;
-}
+  return {
+    nextSlide,
+    previousSlide,
+    getNumSlides,
+    getCurrentSlide,
+  };
+};
 
-function createImageEl(imageFile) {
-  const image = document.createElement("img");
-  image.src = imageFile;
-  return image;
-}
+export default createCarousel;
