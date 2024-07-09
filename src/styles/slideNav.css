@@ -1,14 +1,20 @@
 nav {
   display: flex;
   justify-content: center;
+  align-items: center;
   gap: 30px;
   width: 500px;
-  height: 50px;
+  height: 30px;
   border: 1px solid black;
 }
 
 .slide-nav-btn {
-  width: 50px;
-  height: 50px;
+  width: 20px;
+  height: 20px;
   border-radius: 50%;
+}
+
+.slide-nav-btn.selected {
+  background-color: white;
+  transform: scale(1.2);
 }

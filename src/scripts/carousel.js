@@ -7,6 +7,9 @@ const createCarousel = (imageArray, currentSlide = 0) => {
   const getImageArray = () => myImageArray;
   const getCurrentSlide = () => myCurrentSlide;
   const setCurrentSlide = (freshSlide) => (myCurrentSlide = freshSlide);
+  const moveOneSlide = (direction) => {
+    direction === 1 ? previousSlide() : nextSlide();
+  };
 
   return {
     nextSlide,
@@ -14,6 +17,7 @@ const createCarousel = (imageArray, currentSlide = 0) => {
     getImageArray,
     getCurrentSlide,
     setCurrentSlide,
+    moveOneSlide,
   };
 };
 
